@@ -1,0 +1,6 @@
+services:
+    security.authentication.success_handler:
+        class:  AppBundle\Handler\AuthenticationSuccessHandler
+        arguments:  ["@lexik_jwt_authentication.jwt_manager", "@security.http_utils", {}]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
